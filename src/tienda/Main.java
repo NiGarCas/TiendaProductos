@@ -12,8 +12,24 @@ import java.util.*;
  */
 public class Main {
     public static void main (String [] args){
-    
-        Tienda t = new Tienda ("Tienda", );
+        Scanner flujoEntrada = new Scanner (System.in);
+        Producto[] productos = new Producto[4];
+        System.out.println("BIENVENIDO A TIENDA");
+        System.out.println(" ");
+        System.out.println("Por favor cree los 4 productos de la tienda");
+        for (int i = 0; i < 4; i++){
+            System.out.println("Ingrese nombre del producto: ");
+            String nombre = flujoEntrada.next();
+            System.out.println("Ingrese nombre del producto: ");
+            String nombre = flujoEntrada.next();
+            System.out.println("Ingrese nombre del producto: ");
+            String nombre = flujoEntrada.next();
+            System.out.println("Ingrese nombre del producto: ");
+            String nombre = flujoEntrada.next();
+            System.out.println("Ingrese precio base (sin impuestos) del producto: ");
+            double precio = flujoEntrada.nextDouble();
+        }
+        Tienda t = new Tienda ("Tienda",productos);
         int salir = 0;
         int opcion = 0;
         System.out.println("MENU:");
