@@ -18,7 +18,7 @@ public class Main {
         System.out.println(" ");
         System.out.println("Por favor cree los 4 productos de la tienda");
         for (int i = 0; i < 4; i++){
-            System.out.println("Nombre del producto: ");
+            System.out.println("Nombre del producto" + (i+1) + ": ");
             String nombre = flujoEntrada.next();
             System.out.println("Ingrese numero correspondiente al tipo del producto: ");
             String tipo = null;
@@ -50,11 +50,13 @@ public class Main {
             System.out.println("Precio base (sin impuestos) del producto: ");
             double precio_base = flujoEntrada.nextDouble();
             productos[i] = new Producto (nombre, tipo, cantidad_actual, tope_minimo, precio_base);
+            System.out.println(" ");
         }
         Tienda t = new Tienda ("Tienda", productos);
         int salir = 0;
         int opcion = 0;
-        System.out.println("MENU:");
+        while (salir == 0){
+            System.out.println("MENU:");
         System.out.println(" ");
         System.out.println("1. Vender cierta cantidad de un producto.");
         System.out.println("2. Hacer pedido de un producto.");
@@ -77,20 +79,20 @@ public class Main {
                     System.out.println(" - " + t.getProductos()[j].getNombre());
                 }
                 nombre_producto = flujoEntrada.next();
-                if (((nombre_producto != nombre1) || (nombre_producto != nombre2))||((nombre_producto != nombre3) || (nombre_producto != nombre4))){
+                if (!((nombre_producto.equals(nombre1)) || (nombre_producto.equals(nombre2))) || ((nombre_producto.equals(nombre3)) || (nombre_producto.equals(nombre4)))){
                     System.out.println("Producto no disponible. Revise los productos disponibles e intente nuevamente");
                 }
-            }while(((nombre_producto != nombre1) || (nombre_producto != nombre2))||((nombre_producto != nombre3) || (nombre_producto != nombre4)));
-            if (nombre_producto == nombre1){
+            }while(!((nombre_producto.equals(nombre1)) || (nombre_producto.equals(nombre2))) || ((nombre_producto.equals(nombre3)) || (nombre_producto.equals(nombre4))));
+            if (nombre_producto.equals(nombre1)){
                 producto_ = t.getProductos()[0];
             }else{
-                if (nombre_producto == nombre2){
+                if (nombre_producto.equals(nombre2)){
                     producto_ = t.getProductos()[1];
                 }else{
-                    if (nombre_producto == nombre3){
+                    if (nombre_producto.equals(nombre3)){
                         producto_ = t.getProductos()[2];
                     }else{
-                        if (nombre_producto == nombre4){
+                        if (nombre_producto.equals(nombre4)){
                             producto_ = t.getProductos()[3];
                         }
                     }
@@ -119,21 +121,21 @@ public class Main {
                     System.out.println(" - " + t.getProductos()[j].getNombre());
                 }
                 nombre_producto = flujoEntrada.next();
-                if (((nombre_producto != nombre_1) || (nombre_producto != nombre_2))||((nombre_producto != nombre_3) || (nombre_producto != nombre_4))){
+                if (!((nombre_producto.equals(nombre_1)) || (nombre_producto.equals(nombre_2))) || ((nombre_producto.equals(nombre_3)) || (nombre_producto.equals(nombre_4)))){
                     System.out.println("Producto no disponible. Revise los productos disponibles e intente nuevamente");
                 }
-            }while(((nombre_producto != nombre_1) || (nombre_producto != nombre_2))||((nombre_producto != nombre_3) || (nombre_producto != nombre_4)));
-            if (nombre_producto == nombre_1){
-                producto_ = t.getProductos()[0];
+            }while(!((nombre_producto.equals(nombre_1)) || (nombre_producto.equals(nombre_2))) || ((nombre_producto.equals(nombre_3)) || (nombre_producto.equals(nombre_4))));
+            if (nombre_producto.equals(nombre_1)){
+                producto = t.getProductos()[0];
             }else{
-                if (nombre_producto == nombre_2){
-                    producto_ = t.getProductos()[1];
+                if (nombre_producto.equals(nombre_2)){
+                    producto = t.getProductos()[1];
                 }else{
-                    if (nombre_producto == nombre_3){
-                        producto_ = t.getProductos()[2];
+                    if (nombre_producto.equals(nombre_3)){
+                        producto = t.getProductos()[2];
                     }else{
-                        if (nombre_producto == nombre_4){
-                            producto_ = t.getProductos()[3];
+                        if (nombre_producto.equals(nombre_4)){
+                            producto = t.getProductos()[3];
                         }
                     }
                 }
@@ -150,9 +152,23 @@ public class Main {
                 t.mostrar_estadisticas();
                 break;
             default:
-                System.out.println("Opcion no disponible");
-                break;
+                System.out.println("OPCION NO DISPONIBLE");
+                
+                }
+        System.out.println("¿SALIR?");
+                System.out.println("1. SI");
+                System.out.println("2. NO");
+                int respuesta = flujoEntrada.nextInt();
+                switch (respuesta){
+                    case 1:
+                        salir = 1;
+                        break;
+                    default:
+                        salir = 0;
+                        break;
+                }
         }
+        
         
         
     }
