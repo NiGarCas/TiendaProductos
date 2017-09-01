@@ -104,6 +104,7 @@ public class Main {
                     t.vender(producto_, cantidad);
                     System.out.println(" ");
                     System.out.println("Venta realizada exitosamente");
+                    System.out.println("Cantidad actual de " + producto_.getNombre() + ": " + producto_.getCantidad_actual());
                     System.out.println(" ");
                 }else{
                     System.out.println("No hay suficiente cantidad del producto requerido. No es posible hacer la venta.");
@@ -149,6 +150,7 @@ public class Main {
                     t.hacer_pedido(producto, cantidad_);
                     System.out.println(" ");
                     System.out.println("Pedido realizado exitosamente");
+                    System.out.println("Cantidad actual de " + producto.getNombre() + ": " + producto.getCantidad_actual());
                     System.out.println(" ");
                 }else{
                     System.out.println("No es necesario hacer pedido de este producto. Aun hay suficiente cantidad en bodega.");
