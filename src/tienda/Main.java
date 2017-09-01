@@ -18,7 +18,7 @@ public class Main {
         System.out.println(" ");
         System.out.println("Por favor cree los 4 productos de la tienda");
         for (int i = 0; i < 4; i++){
-            System.out.println("Nombre del producto" + (i+1) + ": ");
+            System.out.println("Nombre del producto " + (i+1) + ": ");
             String nombre = flujoEntrada.next();
             System.out.println("Ingrese numero correspondiente al tipo del producto: ");
             String tipo = null;
