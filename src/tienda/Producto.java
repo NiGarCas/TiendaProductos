@@ -7,7 +7,7 @@ package tienda;
 
 /**
  *
- * @author Estudiante
+ * @author Nicolas Garcia y Juan David Jaime
  */
 public class Producto {
     
@@ -39,14 +39,14 @@ public class Producto {
         this.precio_base = precio_base;
     }
     
-        public void setPrecio_final(double precio_final) {
+    public void setPrecio_final(double precio_final) {
         this.precio_final = precio_final;
     }
 
     public void setCantidad_vendida(int cantidad_vendida) {
         this.cantidad_vendida = cantidad_vendida;
     }
-
+    
     public String getNombre() {
         return nombre;
     }

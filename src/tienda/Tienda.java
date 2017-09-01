@@ -7,13 +7,12 @@ package tienda;
 
 /**
  *
- * @author Estudiante
+ * @author Nicolas Garcia y Juan David Jaime
  */
 public class Tienda {
     private String nombre;
     private Producto[] productos;
     private double valor_total_ventas;
-    private int cantidad_productos;
 
     public String getNombre() {
         return nombre;
@@ -46,7 +45,7 @@ public class Tienda {
     }
     
     public boolean vender (Producto producto, int cantidad){
-        if (cantidad < producto.getCantidad_actual()){
+        if (cantidad <= producto.getCantidad_actual()){
             this.valor_total_ventas = this.valor_total_ventas + ( cantidad * producto.getPrecio_final());
             producto.setCantidad_actual(producto.getCantidad_actual()- cantidad);
             producto.setCantidad_vendida(producto.getCantidad_vendida() + cantidad);
@@ -80,12 +79,12 @@ public class Tienda {
             }
         }
         if (mas_vendido.getCantidad_vendida()!= 0){
-            System.out.println("Producto mas vendido: " + mas_vendido.getNombre());
+            System.out.println("Producto mas vendido: " + mas_vendido.getNombre() + " (" + mas_vendido.getCantidad_vendida()+ ")");
         }else{
             System.out.println("En este momento no hay ningun producto con mas ventas que los demas");
         }
         if (menos_vendido.getCantidad_vendida()!= 999999999){
-            System.out.println("Producto menos vendido: " + menos_vendido.getNombre());
+            System.out.println("Producto menos vendido: " + menos_vendido.getNombre() + " (" + menos_vendido.getCantidad_vendida()+ ")");
         }else{
             System.out.println("En este momento no hay ningun producto con menos ventas que los demas");
         }
