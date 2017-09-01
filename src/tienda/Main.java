@@ -28,10 +28,10 @@ public class Main {
                 System.out.println("2. Supermercado");
                 System.out.println("3. Drogueria");
                 numero_tipo = flujoEntrada.nextInt();
-                if ((numero_tipo < 1) || (numero_tipo > 4)){
+                if ((numero_tipo < 1) || (numero_tipo > 3)){
                     System.out.println("Opcion no disponible. Revise las opciones disponibles e intente nuevamente");
                 }
-            }while((numero_tipo < 1) || (numero_tipo > 4));
+            }while((numero_tipo < 1) || (numero_tipo > 3));
             switch (numero_tipo){
                 case 1:
                     tipo = "papeleria";
@@ -47,7 +47,7 @@ public class Main {
             int cantidad_actual = flujoEntrada.nextInt();
             System.out.println("Cantidad mínima recomendada del producto en bodega: ");
             int tope_minimo = flujoEntrada.nextInt();
-            System.out.println("Precio base (sin impuestos) del producto: ");
+            System.out.println("Precio base (sin impuestos) del producto ($): ");
             double precio_base = flujoEntrada.nextDouble();
             productos[i] = new Producto (nombre, tipo, cantidad_actual, tope_minimo, precio_base);
             System.out.println(" ");
@@ -79,10 +79,10 @@ public class Main {
                     System.out.println(" - " + t.getProductos()[j].getNombre());
                 }
                 nombre_producto = flujoEntrada.next();
-                if (!((nombre_producto.equals(nombre1)) || (nombre_producto.equals(nombre2))) || ((nombre_producto.equals(nombre3)) || (nombre_producto.equals(nombre4)))){
+                if (!(((nombre_producto.equals(nombre1)) || (nombre_producto.equals(nombre2))) || ((nombre_producto.equals(nombre3)) || (nombre_producto.equals(nombre4))))){
                     System.out.println("Producto no disponible. Revise los productos disponibles e intente nuevamente");
                 }
-            }while(!((nombre_producto.equals(nombre1)) || (nombre_producto.equals(nombre2))) || ((nombre_producto.equals(nombre3)) || (nombre_producto.equals(nombre4))));
+            }while(!(((nombre_producto.equals(nombre1)) || (nombre_producto.equals(nombre2))) || ((nombre_producto.equals(nombre3)) || (nombre_producto.equals(nombre4)))));
             if (nombre_producto.equals(nombre1)){
                 producto_ = t.getProductos()[0];
             }else{
@@ -102,6 +102,9 @@ public class Main {
                 int cantidad = flujoEntrada.nextInt();
                 if (t.vender(producto_, cantidad) == true){
                     t.vender(producto_, cantidad);
+                    System.out.println(" ");
+                    System.out.println("Venta realizada exitosamente");
+                    System.out.println(" ");
                 }else{
                     System.out.println("No hay suficiente cantidad del producto requerido. No es posible hacer la venta.");
                 }
@@ -121,10 +124,10 @@ public class Main {
                     System.out.println(" - " + t.getProductos()[j].getNombre());
                 }
                 nombre_producto = flujoEntrada.next();
-                if (!((nombre_producto.equals(nombre_1)) || (nombre_producto.equals(nombre_2))) || ((nombre_producto.equals(nombre_3)) || (nombre_producto.equals(nombre_4)))){
+                if (!(((nombre_producto.equals(nombre_1)) || (nombre_producto.equals(nombre_2))) || ((nombre_producto.equals(nombre_3)) || (nombre_producto.equals(nombre_4))))){
                     System.out.println("Producto no disponible. Revise los productos disponibles e intente nuevamente");
                 }
-            }while(!((nombre_producto.equals(nombre_1)) || (nombre_producto.equals(nombre_2))) || ((nombre_producto.equals(nombre_3)) || (nombre_producto.equals(nombre_4))));
+            }while(!(((nombre_producto.equals(nombre_1)) || (nombre_producto.equals(nombre_2))) || ((nombre_producto.equals(nombre_3)) || (nombre_producto.equals(nombre_4)))));
             if (nombre_producto.equals(nombre_1)){
                 producto = t.getProductos()[0];
             }else{
@@ -144,6 +147,9 @@ public class Main {
                 int cantidad_ = flujoEntrada.nextInt();
                 if (t.hacer_pedido(producto, cantidad_) == true){
                     t.hacer_pedido(producto, cantidad_);
+                    System.out.println(" ");
+                    System.out.println("Pedido realizado exitosamente");
+                    System.out.println(" ");
                 }else{
                     System.out.println("No es necesario hacer pedido de este producto. Aun hay suficiente cantidad en bodega.");
                 }

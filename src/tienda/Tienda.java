@@ -67,14 +67,14 @@ public class Tienda {
     
     public boolean mostrar_estadisticas (){
         Producto mas_vendido = new Producto("nombre","supermercado",0,0,0);
-        for (int i = 0; this.productos[i] != null; i++){
+        for (int i = 0; i < 4; i++){
             if(this.productos[i].getCantidad_vendida() > mas_vendido.getCantidad_vendida()){
                 mas_vendido = this.productos[i];
             }
         }
         Producto menos_vendido = new Producto("nombre","supermercado",0,0,0);
         menos_vendido.setCantidad_vendida(999999999);
-        for (int i = 0; this.productos[i] != null; i++){
+        for (int i = 0; i < 4; i++){
             if(this.productos[i].getCantidad_vendida() < mas_vendido.getCantidad_vendida()){
                 menos_vendido = this.productos[i];
             }
@@ -91,7 +91,7 @@ public class Tienda {
         }
         System.out.println("Total de dinero obtenido por ventas: $" + this.valor_total_ventas);
         int total_unidades_vendidas = 0;
-        for (int j = 0; this.productos[j] != null; j++){
+        for (int j = 0; j < 4; j++){
             total_unidades_vendidas = total_unidades_vendidas + this.productos[j].getCantidad_vendida();
         }
         if (total_unidades_vendidas != 0){
